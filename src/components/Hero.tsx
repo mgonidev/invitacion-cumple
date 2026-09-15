@@ -5,6 +5,7 @@ export function Hero({ host }: { host: 'Matías' | 'Nicole' }) {
   return <section className="hero" aria-labelledby="hero-title">
     <div className="confetti confetti-one" /><div className="confetti confetti-two" /><div className="confetti confetti-three" />
     <img className="gem-scatter" src={host === 'Matías' ? '/gemas-fiesta.png' : '/gemas-cromo.png'} alt="" aria-hidden="true" />
+    {host === 'Nicole' && <img className="nicole-collage" src="/nicole-collage.png" alt="" aria-hidden="true" />}
     <div className="hero-content">
       <p className="eyebrow">Guardá la fecha</p>
       <p className="invited">¡Estás invitado a celebrar!</p>

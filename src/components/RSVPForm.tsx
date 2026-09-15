@@ -2,9 +2,18 @@ import { FormEvent, useState } from 'react'
 
 type FormValues = { name: string; attending: 'yes' | 'no' }
 const initialForm: FormValues = { name: '', attending: 'yes' }
+const funnyNameExamples = [
+  'Cosme Adito',
+  'Aquiles Vaesta',
+  'Omar Bolito',
+  'Manolo Quito',
+  'Olga Rote',
+  'Cesar Noso',
+]
 
 export function RSVPForm({ comingFrom }: { comingFrom: 'Matías' | 'Nicole' }) {
   const [values, setValues] = useState(initialForm)
+  const [namePlaceholder] = useState(() => funnyNameExamples[Math.floor(Math.random() * funnyNameExamples.length)])
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
   const [error, setError] = useState('')
   const attending = values.attending === 'yes'
@@ -31,7 +40,7 @@ export function RSVPForm({ comingFrom }: { comingFrom: 'Matías' | 'Nicole' }) {
   }
   if (status === 'success') return <div className="success-message" role="status"><span>{attending ? '🎉' : '❤️'}</span><h3>{attending ? '¡Listo!' : 'Gracias por avisar.'}</h3><p>{attending ? 'Tu asistencia quedó confirmada. Nos vemos en el cumple.' : 'Te vamos a extrañar.'}</p></div>
   return <form className="rsvp-form" onSubmit={submit} noValidate>
-    <label>Nombre<input required autoComplete="name" value={values.name} onChange={e => update('name', e.target.value)} placeholder="Ej. Juan Pérez" disabled={status === 'sending'} /></label>
+    <label>Nombre<input required autoComplete="name" value={values.name} onChange={e => update('name', e.target.value)} placeholder={`Ej. ${namePlaceholder}`} disabled={status === 'sending'} /></label>
     <fieldset disabled={status === 'sending'}><legend>¿Vas a venir?</legend><div className="attendance-options">
       <label className={attending ? 'selected' : ''}><input type="radio" name="attending" checked={attending} onChange={() => update('attending', 'yes')} /> Sí, obvio 🎉</label>
       <label className={!attending ? 'selected' : ''}><input type="radio" name="attending" checked={!attending} onChange={() => update('attending', 'no')} /> No, te odio 😢</label>
