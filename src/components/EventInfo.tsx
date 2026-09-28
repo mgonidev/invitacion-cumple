@@ -6,6 +6,7 @@ export function EventInfo() {
     <div className="event-card">
       <div className="event-detail"><span aria-hidden="true">◷</span><div><small>CUÁNDO</small><b>{formattedDate}</b>{event.time && <p>{event.time}</p>}</div></div>
       <div className="event-detail"><span aria-hidden="true">⌖</span><div><small>DÓNDE</small><b>{event.venue}</b><p>{event.address}</p></div></div>
+      <div className="event-detail"><span aria-hidden="true">P</span><div><small>ESTACIONAMIENTO</small><b>{event.parking}</b></div></div>
       <a className="button button-secondary" href={event.googleMapsUrl} target="_blank" rel="noreferrer">Cómo llegar <span aria-hidden="true">↗</span></a>
     </div>
   </section>
