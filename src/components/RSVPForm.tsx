@@ -3,12 +3,12 @@ import { FormEvent, useState } from 'react'
 type FormValues = { name: string; attending: 'yes' | 'no' }
 const initialForm: FormValues = { name: '', attending: 'yes' }
 const funnyNameExamples = [
-  'La Basureta',
-  'El rey del fernet',
-  'La que dice “una y me voy”',
-  'El que siempre cae tarde',
-  'La dueña del karaoke',
-  'El que trae hielo',
+  'Cosme Adito',
+  'Aquiles Vaesta',
+  'Omar Bolito',
+  'Manolo Quito',
+  'Olga Rote',
+  'Cesar Noso',
 ]
 
 export function RSVPForm({ comingFrom }: { comingFrom: 'Matías' | 'Nicole' }) {
