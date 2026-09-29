@@ -15,6 +15,7 @@ export function Hero({ host }: { host: 'Matías' | 'Nicole' }) {
         <p>{event.venue} <span>—</span> {event.address}</p>
       </div>
       <Countdown />
+      <a className="button button-primary" href="#rsvp">Confirmar asistencia <span aria-hidden="true">↓</span></a>
     </div>
     <div className="hero-sun" aria-hidden="true"><span>✦</span></div>
   </section>
